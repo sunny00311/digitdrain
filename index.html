@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NaliSentry — Smart civic drainage telemetry and early flood warning dashboard prototype. Monitor urban culverts, sumps, and stormwater runoff.">
+  <meta name="keywords" content="drainage monitoring, flood prevention, smart city, IoT telemetry, water level monitoring">
+  <title>NaliSentry — Smarter Drainage. Safer Communities.</title>
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>">
+</head>
+<body>
+
+  <!-- ========================================================================
+       Header / Navigation
+       ======================================================================== -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="NaliSentry Homepage">
+        <div class="logo-icon">
+          <!-- Stylized Water Ripple + Sensor Beacon Icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <span class="logo-text">NaliSentry</span>
+          <span class="logo-tag">PROTOTYPE</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#stats" class="nav-link">Statistics</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <a href="dashboard.html" class="btn btn-primary btn-sm" id="btn-open-dashboard-nav">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Open Dashboard
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       Hero Section
+       ======================================================================== -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      
+      <!-- Headline & Call to Action -->
+      <div class="hero-content">
+        <div class="badge badge-demo">
+          <span class="pulse-dot pulse-normal"></span>
+          CIVIC INFRASTRUCTURE TELEMETRY CONCEPT
+        </div>
+
+        <h1 class="hero-headline">
+          Smarter Drainage.<br>
+          <span class="gradient-text">Safer Communities.</span>
+        </h1>
+
+        <p class="hero-description">
+          Monitor drainage conditions, identify high-risk locations, and visualize potential overflow situations through one centralized dashboard. Designed to avert municipal waterlogging and empower rapid flood-response teams.
+        </p>
+
+        <div class="hero-cta">
+          <a href="dashboard.html" class="btn btn-primary" id="btn-hero-explore">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Explore Dashboard
+          </a>
+          <a href="#features" class="btn btn-outline" id="btn-hero-features">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+            Discover Features
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <div class="meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--status-normal)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <span>Simulated Sensor Feeds</span>
+          </div>
+          <div class="meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <span>Leaflet Geospatial Map</span>
+          </div>
+          <div class="meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--status-warning)" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            <span>Proactive Hazard Alerts</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual: Mock Drainage Map Preview & Alert Card -->
+      <div class="hero-visual">
+        <div class="preview-card">
+          <div class="preview-header">
+            <div class="preview-title">
+              <span class="pulse-dot pulse-critical"></span>
+              <span>Live Storm Catchment Preview</span>
+            </div>
+            <span class="badge badge-demo">Simulated</span>
+          </div>
+
+          <!-- Interactive Mock Map Canvas -->
+          <div class="mock-map-canvas" id="mockMapCanvas">
+            <!-- Stylized SVG Drainage Channels -->
+            <svg class="mock-drain-route" viewBox="0 0 400 240">
+              <path d="M -10 120 Q 120 80, 200 130 T 420 110" fill="none" stroke="rgba(6, 182, 212, 0.35)" stroke-width="5" stroke-linecap="round"/>
+              <path d="M 140 -20 Q 180 80, 200 130 T 260 260" fill="none" stroke="rgba(6, 182, 212, 0.25)" stroke-width="3" stroke-dasharray="6,4"/>
+              <path d="M 50 230 Q 100 160, 200 130" fill="none" stroke="rgba(14, 165, 233, 0.3)" stroke-width="4"/>
+            </svg>
+
+            <!-- Mock Marker Pins (Clickable to switch preview alert!) -->
+            <div class="mock-pin critical" style="top: 48%; left: 52%;" data-id="p1" title="Click to view NS-014">
+              !
+            </div>
+            <div class="mock-pin warning" style="top: 30%; left: 32%;" data-id="p2" title="Click to view NS-005">
+              ▲
+            </div>
+            <div class="mock-pin normal" style="top: 68%; left: 75%;" data-id="p3" title="Click to view NS-001">
+              ✓
+            </div>
+          </div>
+
+          <!-- Sample Alert Card Preview -->
+          <div class="sample-alert-card" id="hero-mock-alert">
+            <div class="alert-badge-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            </div>
+            <div class="alert-details">
+              <h4>CRITICAL — NS-014</h4>
+              <p>Water level has exceeded configured critical threshold (84 cm / 80 cm limit).</p>
+              <div class="meta">Location: Nehru Nagar Culvert Drain • Requires immediate inspection</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Statistics Section
+       ======================================================================== -->
+  <section class="stats-section" id="stats">
+    <div class="container">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+        <span class="section-tag" style="margin: 0;">CATCHMENT TELEMETRY OVERVIEW</span>
+        <span class="badge badge-demo">Illustrative Sample Dataset</span>
+      </div>
+
+      <div class="stats-grid">
+        <!-- Total Monitored -->
+        <div class="stat-card total">
+          <div class="stat-top">
+            <span class="stat-title">Monitored Drainage Points</span>
+            <div class="stat-icon" style="color: var(--accent-cyan);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+          </div>
+          <div class="stat-value counter-value" data-target="120">0</div>
+          <p class="stat-desc">Culverts, sumps, and arterial canals under active surveillance</p>
+        </div>
+
+        <!-- Normal Status -->
+        <div class="stat-card normal">
+          <div class="stat-top">
+            <span class="stat-title">Normal Condition</span>
+            <div class="stat-icon" style="color: var(--status-normal);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+          </div>
+          <div class="stat-value counter-value" data-target="86">0</div>
+          <p class="stat-desc">Water levels within nominal flow capacity (&lt; 60 cm)</p>
+        </div>
+
+        <!-- Warning Status -->
+        <div class="stat-card warning">
+          <div class="stat-top">
+            <span class="stat-title">Warning Condition</span>
+            <div class="stat-icon" style="color: var(--status-warning);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            </div>
+          </div>
+          <div class="stat-value counter-value" data-target="24">0</div>
+          <p class="stat-desc">Approaching capacity limit; heightened observation (60–80 cm)</p>
+        </div>
+
+        <!-- Critical Status -->
+        <div class="stat-card critical">
+          <div class="stat-top">
+            <span class="stat-title">Critical Condition</span>
+            <div class="stat-icon" style="color: var(--status-critical);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+            </div>
+          </div>
+          <div class="stat-value counter-value" data-target="10">0</div>
+          <p class="stat-desc">Severe overflow hazard requiring dispatch (&gt; 80 cm)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Features Section (6 Feature Cards per plan.md)
+       ======================================================================== -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">CORE CAPABILITIES</span>
+        <h2 class="section-title">Engineered for Urban Drainage Resilience</h2>
+        <p class="section-subtitle">
+          From street-level culverts to regional stormwater sumps, NaliSentry equips city planners and emergency crews with actionable spatial telemetry.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1: Interactive Drainage Map -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+          </div>
+          <h3 class="feature-title">Interactive Drainage Map</h3>
+          <p class="feature-description">
+            Explore the citywide drainage grid with dynamic Leaflet.js mapping. Color-coded status pins pinpoint bottlenecks across catchments with popup telemetry.
+          </p>
+        </div>
+
+        <!-- Feature 2: Water-Level Monitoring -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+          </div>
+          <h3 class="feature-title">Water-Level Monitoring</h3>
+          <p class="feature-description">
+            Continuous acoustic and ultrasonic depth estimation tracking water centimeters in real-time, showing capacity utilization and flow volume.
+          </p>
+        </div>
+
+        <!-- Feature 3: Critical Alert Visualization -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          </div>
+          <h3 class="feature-title">Critical Alert Visualization</h3>
+          <p class="feature-description">
+            Instantaneous hazard notices categorized by urgency. Operators can acknowledge alerts and trigger immediate focus on the live geospatial map.
+          </p>
+        </div>
+
+        <!-- Feature 4: Historical Water-Level Charts -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          </div>
+          <h3 class="feature-title">Historical Water-Level Charts</h3>
+          <p class="feature-description">
+            Interactive Chart.js time-series plots revealing 24-hour surge curves, storm peak timing, and comparison against warning and critical safety lines.
+          </p>
+        </div>
+
+        <!-- Feature 5: Drainage Point Status -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+          </div>
+          <h3 class="feature-title">Drainage Point Status</h3>
+          <p class="feature-description">
+            Comprehensive registry of every monitored sump and canal with real-time text search, status filters, depth capacity bars, and sensor battery metrics.
+          </p>
+        </div>
+
+        <!-- Feature 6: Maintenance Prioritization -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+          </div>
+          <h3 class="feature-title">Maintenance Prioritization</h3>
+          <p class="feature-description">
+            Rank culverts and desilting interventions based on high risk and recurring warning trends to optimize municipal vacuum truck and pump deployment.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       How It Works Section (4 Steps per plan.md)
+       ======================================================================== -->
+  <section class="section how-section" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">SYSTEM ARCHITECTURE</span>
+        <h2 class="section-title">How the Proposed System Operates</h2>
+        <p class="section-subtitle">
+          NaliSentry is designed around an end-to-end edge-to-cloud telemetry workflow.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <div class="step-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+          </div>
+          <h3 class="step-title">Sensors Measure Water</h3>
+          <p class="step-desc">
+            Solar-powered ultrasonic and hydrostatic depth sensors deployed at drainage culverts measure water level fluctuations continuously.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <div class="step-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+          </div>
+          <h3 class="step-title">Controller Collects Readings</h3>
+          <p class="step-desc">
+            An edge telemetry microcontroller buffers readings, logs battery status, and securely transmits packets via cellular or LPWAN networks.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <div class="step-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+          </div>
+          <h3 class="step-title">Platform Evaluates Conditions</h3>
+          <p class="step-desc">
+            The telemetry engine ingests time-series data, evaluates water levels against dynamic thresholds, and flags rising trends.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <div class="step-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </div>
+          <h3 class="step-title">Alerts Identify Hotspots</h3>
+          <p class="step-desc">
+            When thresholds are breached, visual alerts populate the central dashboard enabling emergency managers to dispatch desilting crews.
+          </p>
+        </div>
+      </div>
+
+      <!-- Explanatory Disclaimer Box -->
+      <div class="sim-disclaimer-box" id="about">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        <p>
+          <strong>Prototype Scope & Disclaimer:</strong> This website represents a frontend concept demonstration for NaliSentry. All drainage readings, telemetry coordinates, and alerts are simulated sample data. The static prototype demonstrates user interaction, map visualization, and dashboard analytics without requiring physical hardware or backend servers.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Call To Action Banner
+       ======================================================================== -->
+  <section class="section" style="padding: 60px 0;">
+    <div class="container">
+      <div style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(14, 165, 233, 0.08)); border: 1px solid var(--border-accent); border-radius: var(--radius-xl); padding: 50px 36px; text-align: center; position: relative; overflow: hidden; backdrop-filter: blur(14px);">
+        <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 14px;">Experience the Telemetry Dashboard</h2>
+        <p style="font-size: 1.05rem; max-width: 600px; margin: 0 auto 28px; color: var(--text-secondary);">
+          Interact with 20 simulated drainage nodes, test rainfall surge simulations, acknowledge emergency alarms, and review trend curves.
+        </p>
+        <a href="dashboard.html" class="btn btn-primary" style="font-size: 1.05rem; padding: 14px 32px;" id="btn-cta-launch">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Launch NaliSentry Dashboard
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/>
+              </svg>
+            </div>
+            <span class="logo-text">NaliSentry</span>
+          </div>
+          <p>
+            An interactive smart drainage monitoring and early waterlogging warning concept designed for civic administrators and disaster relief teams.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#stats">Catchment Stats</a></li>
+            <li><a href="#features">Platform Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Access</h4>
+          <ul class="footer-links">
+            <li><a href="dashboard.html">Live Dashboard</a></li>
+            <li><a href="dashboard.html#map-section">Drainage Map</a></li>
+            <li><a href="dashboard.html#alerts-section">Active Alerts</a></li>
+            <li><a href="dashboard.html#chart-section">24h Trends</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Prototype Info</h4>
+          <ul class="footer-links">
+            <li><span style="color: var(--text-muted);">Version 1.0.0-static</span></li>
+            <li><span style="color: var(--text-muted);">Stack: HTML5 / CSS3 / Vanilla JS</span></li>
+            <li><span style="color: var(--text-muted);">Cartography: Leaflet + OSM</span></li>
+            <li><span style="color: var(--text-muted);">Charts: Chart.js</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 NaliSentry Concept. All simulated telemetry data for demonstration only.</div>
+        <div>Smarter Drainage • Safer Communities</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
